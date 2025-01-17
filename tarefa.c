@@ -91,23 +91,11 @@ void control_led(int key) {
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
-    } else if (key == 6) gpio_put(LED_R_PIN, 1);
-    else if (key == 7) {
-        gpio_put(LED_R_PIN, 1);
-        gpio_put(LED_G_PIN, 1);
-        gpio_put(LED_B_PIN, 1);
-    }
+   }
 }
 
 void control_buzzer(int key) {
-    if (key == 4) {
-        // Melodia da tecla 4
-        play_note(262, 500);  // Dó
-        play_note(294, 500);  // Ré
-        play_note(330, 500);  // Mi
-        play_note(349, 500);  // Fá
-        play_note(392, 500);  // Sol
-    } else if (key == 8) {
+   if (key == 4) {
     // 🎮 Tema do Super Mario Bros 🎮
 
     // Primeira parte
@@ -223,100 +211,7 @@ void control_buzzer(int key) {
     play_note(480, 100);  // Si
     sleep_ms(300);
 
-      } else if (key == 12) {
-        // 🎶 "Cha-La Head-Cha-La" - Versão Simplificada 🎶
-        play_note(392, 250);  // Sol
-        play_note(440, 250);  // Lá
-        play_note(494, 250);  // Si
-        play_note(523, 500);  // Dó
-
-        play_note(494, 250);  // Si
-        play_note(440, 250);  // Lá
-        play_note(392, 500);  // Sol
-
-        sleep_ms(200);
-
-        play_note(330, 250);  // Mi
-        play_note(349, 250);  // Fá
-        play_note(392, 500);  // Sol
-    } else if (key == 13) {
-    // 🎵 Dan Dan Kokoro Hikareteku (Simplificado em 8 bits) 🎵
-
-    play_note(392, 250);  // Sol
-    play_note(440, 250);  // Lá
-    play_note(494, 500);  // Si
-    play_note(440, 250);  // Lá
-    play_note(392, 250);  // Sol
-    play_note(349, 500);  // Fá
-
-    sleep_ms(200);
-
-    play_note(330, 250);  // Mi
-    play_note(349, 250);  // Fá
-    play_note(392, 500);  // Sol
-    play_note(440, 250);  // Lá
-    play_note(392, 250);  // Sol
-    play_note(349, 500);  // Fá
-
-    sleep_ms(200);
-
-    play_note(330, 250);  // Mi
-    play_note(294, 250);  // Ré
-    play_note(330, 250);  // Mi
-    play_note(349, 500);  // Fá
-    play_note(392, 500);  // Sol
-
-    sleep_ms(200);
-
-    // Refrão simplificado
-    play_note(494, 250);  // Si
-    play_note(440, 250);  // Lá
-    play_note(392, 500);  // Sol
-    play_note(349, 250);  // Fá
-    play_note(392, 250);  // Sol
-    play_note(440, 500);  // Lá
-
-    sleep_ms(200);
-
-    play_note(494, 250);  // Si
-    play_note(440, 250);  // Lá
-    play_note(392, 500);  // Sol
-    play_note(349, 250);  // Fá
-    play_note(330, 250);  // Mi
-    play_note(349, 500);  // Fá
-     } else if (key == 15) {
-    // 🎵 Tema de The Legend of Zelda 🎵
-    
-    play_note(330, 500);  // Mi
-    sleep_ms(100);
-    play_note(392, 500);  // Sol
-    sleep_ms(100);
-    play_note(440, 500);  // Lá
-    sleep_ms(100);
-    play_note(494, 500);  // Si
-    sleep_ms(100);
-    play_note(523, 500);  // Dó
-    sleep_ms(100);
-
-    // Segunda parte
-    play_note(440, 500);  // Lá
-    sleep_ms(100);
-    play_note(392, 500);  // Sol
-    sleep_ms(100);
-    play_note(330, 500);  // Mi
-    sleep_ms(100);
-    play_note(262, 500);  // Dó
-    sleep_ms(100);
-    
-    // Final
-    play_note(330, 500);  // Mi
-    sleep_ms(100);
-    play_note(392, 500);  // Sol
-    sleep_ms(100);
-    play_note(440, 500);  // Lá
-    sleep_ms(100);
-}
-
+   }
 }
 
 void enter_bootloader_mode() {
