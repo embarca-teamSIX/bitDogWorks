@@ -37,7 +37,6 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
 - Similar ao Modo 0, mas com comportamento diferenciado:
   - **Tecla 1:** Acende o LED vermelho por 1 segundo.
   - **Tecla 13:** Retorna ao **Modo 0**.
-  - **Tecla 14:** Entra no modo bootloader.
 
 ---
 
