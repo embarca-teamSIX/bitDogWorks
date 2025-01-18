@@ -98,7 +98,7 @@ void play_note(int frequency, int duration_ms) { // Função para tocar uma nota
 }
 
 
-
+// Função para controlar o modo principal do sistema.
 void control_mode_0(int key) {
     gpio_put(LED_R_PIN, 0);
     gpio_put(LED_G_PIN, 0);
@@ -288,8 +288,7 @@ void control_mode_0(int key) {
     
 }
 
-
-
+//Função para controlar o modo alternativo do sistema.
 void control_mode_1(int key) {
     gpio_put(LED_R_PIN, 0);
     gpio_put(LED_G_PIN, 0);
@@ -340,12 +339,7 @@ void control_mode_1(int key) {
         menu_switch_feedback();
         break;
     case 14:
-       //entrando no modo bootloader
-        printf("Entering bootloader mode...\n");
-    gpio_put(LED_R_PIN, 1); // Indicação visual (opcional)
-    sleep_ms(1000);         // Pequena pausa antes de reiniciar
-    reset_usb_boot(0, 0);   // Reinicia no modo USB Bootloader
-
+    
         break;
     case 15:
 
