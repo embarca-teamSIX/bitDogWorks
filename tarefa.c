@@ -340,13 +340,11 @@ void control_mode_1(int key) {
 
         break;
     case 11:
-        // Reseta o controlador do pisca led, permitindo rodá-lo mais uma vez
-        run_frequencies = false;
         break;
     case 12:
         // Alterna a frequência de comutação dos leds cada vez que o botão é pressionado
-        if(!run_frequencies)
-            run_pisca_led_diferentes_frequencias(LED_R_PIN, LED_G_PIN, LED_B_PIN);
+        run_pisca_led_diferentes_frequencias(LED_R_PIN, LED_G_PIN, LED_B_PIN);
+        piscar_todos_os_leds_finalizando(LED_R_PIN, LED_G_PIN, LED_B_PIN);
         break;
     case 13:
         current_mode = 0;
