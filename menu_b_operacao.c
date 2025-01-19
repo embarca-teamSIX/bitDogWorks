@@ -87,18 +87,67 @@ void preenche_buzz(int *array_to_fill)
         return;
         
 }
+int retorna_led_valido()//auto explicativo
+{
+//todo: laço para verificar sé é valido    
+    while(true)
+    {
+        int tecla = read_keypad();
+        switch (tecla)
+        {
+            case 1://led 13
+            gpio_put(13, 1);
+          sleep_ms(100);
+          gpio_put(13, 0);
+          return tecla;
+          break;
+            case 2://led 11
+           gpio_put(11, 1);
+          sleep_ms(100);
+          gpio_put(11, 0);
+         return tecla;
+        break;
+            case 3: //lled 12
+          gpio_put(12, 1);
+          sleep_ms(100);
+          gpio_put(12, 0);
+        return tecla;
+        break;
+            case 12:
+        return tecla;
+        break;
+            default:
+        somErro();
+            break;
+        }
+    }
+}
+void preenche_led(int *array_to_fill)
+{
+     int controle=0;
+        do{
+        int tecla_lida = retorna_led_valido();
+        if(tecla_lida ==12){somConfirmacao();return;}
+        array_to_fill[controle]=tecla_lida;
+        controle++;
+        }while (controle<100);
+        somConfirmacao();
+        return;
+}
 void operacao_inicial()
 {
+    int controle=0;//var para verificar se foi criado algum mini programa antes de 'D'
+    int linha_comando_buzz[MAX_LEDUZZING];
+    int linha_comando_led[MAX_LEDUZZING];
     while(true)
     {
     int tecla = read_keypad();
-    int controle=0;//var para verificar se foi criado algum mini programa antes de 'D'
     if(tecla==4||tecla ==8)
     {
         //se tecla for a ou b
-        int linha_comando_buzz[MAX_LEDUZZING];
-        int linha_comando_led[MAX_LEDUZZING];
-        if(tecla ==4){preenche_buzz(linha_comando_buzz);}
+      
+        if(tecla ==4){preenche_buzz(linha_comando_buzz);controle++;}
+         if(tecla ==8){preenche_led(linha_comando_led);controle++;}
         //criar func para preencher led
         //cria func para preencher buzz
     }else{
@@ -110,6 +159,12 @@ void operacao_inicial()
         {
             //tecla 'D' para iniciar
             //todo: por verificação se o programa  foi adicionado ou não
+            if(controle!=0)
+            {
+                executa_buzzer(linha_comando_buzz);
+                executa_leds(linha_comando_led);
+                operacao_inicial();
+            }
         }
         if(tecla ==13)
         {
@@ -120,6 +175,68 @@ void operacao_inicial()
     }
     }
 }
-void executa_leds(int *linha_comando_led);
-void executa_buzzer(int *linha_comando_buzz);
+void executa_buzzer(int *linha_comando_buz)
+{
+    int i=0;
+    do
+    {
+        
+        switch (linha_comando_led[i])
+        {
+            case 1:
+          playNote(261, 200);
+          break;
+            case 2:
+         playNote(293, 200);  // Ré (293 Hz)
+        break;
+            case 3: 
+        playNote(329, 200);  // Mi (329 Hz)
+        break;
+            case 5:
+         playNote(349, 200);  // Fá (349 Hz)
+        break;
+            case 6:
+         playNote(392, 200);  // Sol (392 Hz)
+        break;
+            case 7:
+        playNote(440, 200);  // Lá (440 Hz)
+
+        break;
+            case 9:
+        playNote(493, 200);  // Si (493 Hz)
+        break;
+            case 10:
+        playNote(523, 200);  // Dó (oitava acima, 523 Hz)
+        break;
+            case 11:
+        playNote(587, 200);  // Ré (oitava acima, 587 Hz)
+        break;
+        }
+        i++;
+    }while(i<MAX_LEDUZZING);
+}
+void executa_led(int *linha_comando_led)
+{
+int i=0;
+    do{
+        switch (linha_comando_led[i])
+        {
+            case 1://led 13
+            gpio_put(13, 1);
+          sleep_ms(1000);
+          gpio_put(13, 0);
+          break;
+            case 2://led 11
+           gpio_put(11, 1);
+          sleep_ms(1000);
+          gpio_put(11, 0);
+        break;
+            case 3: //lled 12
+          gpio_put(12, 1);
+          sleep_ms(1000);
+          gpio_put(12, 0);
+        break;
+        }
+    }while(i<MAX_LEDUZZING);
+}
 void interrupcaoBotao(uint gpio, uint32_t events);
