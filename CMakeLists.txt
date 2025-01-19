@@ -26,16 +26,19 @@ endif()
 set(PICO_BOARD pico_w CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
-
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+#se funcionar é sucesso
 project(tarefa C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
-
-add_executable(tarefa tarefa.c )
+#adicionar aqui também novos arquivos para compilação
+add_executable(tarefa 
+            tarefa.c 
+            menu_b_operacao.c
+                )
 
 pico_set_program_name(tarefa "tarefa")
 pico_set_program_version(tarefa "0.1")
@@ -52,8 +55,10 @@ target_link_libraries(tarefa
         pico_stdlib)
 
 # Add the standard include files to the build
+#pasta include adicionada para facilitar encontrar a libs
 target_include_directories(tarefa PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
+  ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 # Add any user requested libraries

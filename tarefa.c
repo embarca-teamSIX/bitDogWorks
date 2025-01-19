@@ -1,7 +1,7 @@
 #include "pico/stdlib.h"              // Inclui a biblioteca padrão do Pico para entrada e saída.
 #include "hardware/gpio.h"            // Inclui a biblioteca de controle GPIO do hardware.
 #include "pico/bootrom.h"             // Necessário para funções como reset_usb_boot.
-
+#include "menu_b_operacao.h"            //include de Gleison F.
 #define ROWS 4                        // Define o número de linhas do teclado matricial.
 #define COLS 4                        // Define o número de colunas do teclado matricial.
 
@@ -22,6 +22,13 @@ int keypad[ROWS][COLS] = {            // Mapeia os valores associados a cada tec
 
 int last_key = -1;                    // Armazena a última tecla pressionada (-1 significa nenhuma).
 int current_mode = 0;                 // Define o modo atual do sistema (0: principal, 1: alternativo).
+//prototipos
+void menu_switch_feedback();
+void setup_gpio();
+int read_keypad();
+void play_note(int frequency, int duration_ms);
+void control_mode_0(int key);
+void control_mode_1(int key);
 
 void menu_switch_feedback() {         // Função para fornecer feedback ao alternar menus.
     for (int i = 0; i < 2; i++) {     // Realiza duas piscadas dos LEDs.
@@ -248,7 +255,7 @@ void control_mode_0(int key) {
 
         break;
     case 8:
-
+        operacao_inicial();//função de Gleison F presente no menu_B_operacao
         break;
     case 9:
 
@@ -373,3 +380,5 @@ int main(){
         sleep_ms(100);
     }
 }
+
+
