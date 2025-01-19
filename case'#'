@@ -1,10 +1,10 @@
 case '#': 
   for (uint8_t l = 0; l < LEDS; l++) {
-    digitalWrite(ledPins[l], LOW); // Desliga todos os LEDs
+    gpio_put(ledPins[l], 0); // Desliga todos os LEDs
   }
-  delay(500); // Atraso de meio segundo
+  sleep_ms(500); // Atraso de meio segundo
   for (uint8_t l = 0; l < LEDS; l++) {
-    digitalWrite(ledPins[l], HIGH); // Liga todos os LEDs
+    gpio_put(ledPins[l], 1); // Liga todos os LEDs
   }
-  delay(500); // Atraso de meio segundo
+  sleep_ms(500); // Atraso de meio segundo
   break;
