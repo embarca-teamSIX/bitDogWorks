@@ -102,6 +102,7 @@ void SOS_signal() {
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
+        play_note(400, 200);
         sleep_ms(200);
         gpio_put(LED_R_PIN, 0);
         gpio_put(LED_G_PIN, 0);
@@ -116,6 +117,7 @@ void SOS_signal() {
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
+        play_note(400, 800);
         sleep_ms(800);
         gpio_put(LED_R_PIN, 0);
         gpio_put(LED_G_PIN, 0);
@@ -130,6 +132,7 @@ void SOS_signal() {
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
+        play_note(400, 200);
         sleep_ms(200);
         gpio_put(LED_R_PIN, 0);
         gpio_put(LED_G_PIN, 0);
