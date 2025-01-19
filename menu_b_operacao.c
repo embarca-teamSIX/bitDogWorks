@@ -3,8 +3,10 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "pico/bootrom.h"  // Biblioteca para acessar o modo bootloader
+
 #define MAX_LEDUZZING 100
 #define PINO_BOTAO 16
+
 void somErro() {
     playNote(520, 100);  
     sleep_ms(100);       
@@ -243,7 +245,5 @@ int i=0;
     somConfirmacao();
 }
 void interrupcaoBotao(uint gpio, uint32_t events) {
-    //if (gpio == PINO_BOTAO && events & GPIO_IRQ_EDGE_FALL) {
-       operacao_inicial();  // Entra no modo bootloader quando o botão for pressionado
-   // }
+       operacao_inicial();  // retornar ao menu de criação quando pressionado #sustenido
 }
