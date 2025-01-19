@@ -26,8 +26,8 @@ endif()
 set(PICO_BOARD pico_w CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
-
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+#se funcionar é sucesso
 project(tarefa C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK

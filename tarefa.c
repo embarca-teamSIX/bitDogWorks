@@ -22,6 +22,13 @@ int keypad[ROWS][COLS] = {            // Mapeia os valores associados a cada tec
 
 int last_key = -1;                    // Armazena a última tecla pressionada (-1 significa nenhuma).
 int current_mode = 0;                 // Define o modo atual do sistema (0: principal, 1: alternativo).
+//prototipos
+void menu_switch_feedback();
+void setup_gpio();
+int read_keypad();
+void play_note(int frequency, int duration_ms);
+void control_mode_0(int key);
+void control_mode_1(int key);
 
 void menu_switch_feedback() {         // Função para fornecer feedback ao alternar menus.
     for (int i = 0; i < 2; i++) {     // Realiza duas piscadas dos LEDs.
@@ -373,3 +380,5 @@ int main(){
         sleep_ms(100);
     }
 }
+
+

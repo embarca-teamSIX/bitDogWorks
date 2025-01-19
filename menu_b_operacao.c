@@ -8,19 +8,19 @@
 #define PINO_BOTAO 16
 
 void somErro() {
-    playNote(520, 100);  
+    play_note(520, 100);  
     sleep_ms(100);       
-    playNote(520, 100);  
+    play_note(520, 100);  
     sleep_ms(100);
-    playNote(440, 200);  
+    play_note(440, 200);  
     sleep_ms(200);
 }
 void somConfirmacao() {
-    playNote(440, 100);  // Lá (440 Hz) por 100 ms
+    play_note(440, 100);  // Lá (440 Hz) por 100 ms
     sleep_ms(50);        // Pausa curta de 50 ms
-    playNote(520, 100);  // Dó# (520 Hz) por 100 ms
+    play_note(520, 100);  // Dó# (520 Hz) por 100 ms
     sleep_ms(50);        // Pausa curta de 50 ms
-    playNote(660, 150);  // Mi (660 Hz) por 150 ms
+    play_note(660, 150);  // Mi (660 Hz) por 150 ms
 }
 int retorna_buzz_valido()//auto explicativo
 {
@@ -31,39 +31,39 @@ int retorna_buzz_valido()//auto explicativo
         switch (tecla)
         {
             case 1:
-          playNote(261, 200);
+          play_note(261, 200);
           return tecla;
           break;
             case 2:
-         playNote(293, 200);  // Ré (293 Hz)
+         play_note(293, 200);  // Ré (293 Hz)
          return tecla;
         break;
             case 3: 
-        playNote(329, 200);  // Mi (329 Hz)
+        play_note(329, 200);  // Mi (329 Hz)
         return tecla;
         break;
             case 5:
-         playNote(349, 200);  // Fá (349 Hz)
+         play_note(349, 200);  // Fá (349 Hz)
          return tecla;
         break;
             case 6:
-         playNote(392, 200);  // Sol (392 Hz)
+         play_note(392, 200);  // Sol (392 Hz)
          return tecla;
         break;
             case 7:
-        playNote(440, 200);  // Lá (440 Hz)
+        play_note(440, 200);  // Lá (440 Hz)
         return tecla;
         break;
             case 9:
-        playNote(493, 200);  // Si (493 Hz)
+        play_note(493, 200);  // Si (493 Hz)
         return tecla;
         break;
             case 10:
-        playNote(523, 200);  // Dó (oitava acima, 523 Hz)
+        play_note(523, 200);  // Dó (oitava acima, 523 Hz)
         return tecla;
         break;
             case 11:
-        playNote(587, 200);  // Ré (oitava acima, 587 Hz)
+        play_note(587, 200);  // Ré (oitava acima, 587 Hz)
         return tecla;
         break;
             case 12:
@@ -165,7 +165,7 @@ void operacao_inicial()
             if(controle!=0)
             {
                 executa_buzzer(linha_comando_buzz);
-                executa_leds(linha_comando_led);
+                executa_led(linha_comando_led);
                 operacao_inicial();
             }
         }
@@ -187,32 +187,32 @@ void executa_buzzer(int *linha_comando_buzz)
         switch (linha_comando_buzz[i])
         {
             case 1:
-          playNote(261, 200);
+          play_note(261, 200);
           break;
             case 2:
-         playNote(293, 200);  // Ré (293 Hz)
+         play_note(293, 200);  // Ré (293 Hz)
         break;
             case 3: 
-        playNote(329, 200);  // Mi (329 Hz)
+        play_note(329, 200);  // Mi (329 Hz)
         break;
             case 5:
-         playNote(349, 200);  // Fá (349 Hz)
+         play_note(349, 200);  // Fá (349 Hz)
         break;
             case 6:
-         playNote(392, 200);  // Sol (392 Hz)
+         play_note(392, 200);  // Sol (392 Hz)
         break;
             case 7:
-        playNote(440, 200);  // Lá (440 Hz)
+        play_note(440, 200);  // Lá (440 Hz)
 
         break;
             case 9:
-        playNote(493, 200);  // Si (493 Hz)
+        play_note(493, 200);  // Si (493 Hz)
         break;
             case 10:
-        playNote(523, 200);  // Dó (oitava acima, 523 Hz)
+        play_note(523, 200);  // Dó (oitava acima, 523 Hz)
         break;
             case 11:
-        playNote(587, 200);  // Ré (oitava acima, 587 Hz)
+        play_note(587, 200);  // Ré (oitava acima, 587 Hz)
         break;
         }
         i++;
