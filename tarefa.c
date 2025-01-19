@@ -100,8 +100,12 @@ void play_note(int frequency, int duration_ms) { // Função para tocar uma nota
 void SOS_signal() {
     for (int i = 0; i < 3; i++) {
         gpio_put(LED_R_PIN, 1);
+        gpio_put(LED_G_PIN, 1);
+        gpio_put(LED_B_PIN, 1);
         sleep_ms(200);
         gpio_put(LED_R_PIN, 0);
+        gpio_put(LED_G_PIN, 0);
+        gpio_put(LED_B_PIN, 0);
         sleep_ms(200);
         sleep_ms(125);
     }
@@ -110,8 +114,12 @@ void SOS_signal() {
 
     for (int i = 0; i < 3; i++) {
         gpio_put(LED_R_PIN, 1);
+        gpio_put(LED_G_PIN, 1);
+        gpio_put(LED_B_PIN, 1);
         sleep_ms(800);
         gpio_put(LED_R_PIN, 0);
+        gpio_put(LED_G_PIN, 0);
+        gpio_put(LED_B_PIN, 0);
         sleep_ms(800);
         sleep_ms(125);
     }
@@ -120,8 +128,12 @@ void SOS_signal() {
 
     for (int i = 0; i < 3; i++) {  
         gpio_put(LED_R_PIN, 1);
+        gpio_put(LED_G_PIN, 1);
+        gpio_put(LED_B_PIN, 1);
         sleep_ms(200);
         gpio_put(LED_R_PIN, 0);
+        gpio_put(LED_G_PIN, 0);
+        gpio_put(LED_B_PIN, 0);
         sleep_ms(200);
         sleep_ms(125);
     }
