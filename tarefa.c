@@ -339,7 +339,7 @@ void control_mode_1(int key) {
 
         break;
     case 12:
-
+        // Alterna a frequência de comutação dos leds cada vez que o botão é pressionado
         break;
     case 13:
         current_mode = 0;
