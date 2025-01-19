@@ -32,6 +32,7 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
   - **Tecla 5:** Acende todos os LEDs (RGB).
   - **Tecla 13:** Alterna para o **Modo 1**.
   - **Tecla 14:** Entra no modo bootloader.
+  - **Tecla 16:** Emite um sinal de SOS usando todos os LEDs juntamente com o buzzer.
 
 #### **Modo 1 - Alternativo**
 - Similar ao Modo 0, mas com comportamento diferenciado:
