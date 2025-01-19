@@ -4,7 +4,7 @@
 #include "hardware/gpio.h"
 #include "pico/bootrom.h"  // Biblioteca para acessar o modo bootloader
 #define MAX_LEDUZZING 100
-const int ref ={1, 2, 3, 5, 6, 7, 9, 10, 11};
+#define PINO_BOTAO 16
 void somErro() {
     playNote(520, 100);  
     sleep_ms(100);       
@@ -139,6 +139,7 @@ void operacao_inicial()
     int controle=0;//var para verificar se foi criado algum mini programa antes de 'D'
     int linha_comando_buzz[MAX_LEDUZZING];
     int linha_comando_led[MAX_LEDUZZING];
+    gpio_set_irq_enabled_with_callback(PINO_BOTAO, GPIO_IRQ_EDGE_FALL, true, &interrupcaoBotao);
     while(true)
     {
     int tecla = read_keypad();
@@ -148,8 +149,8 @@ void operacao_inicial()
       
         if(tecla ==4){preenche_buzz(linha_comando_buzz);controle++;}
          if(tecla ==8){preenche_led(linha_comando_led);controle++;}
-        //criar func para preencher led
-        //cria func para preencher buzz
+        //criar func para preencher led-ok
+        //cria func para preencher buzz-ok
     }else{
         if(tecla ==15)
         {//se for sustenido # retornar ao menu de deividson
@@ -214,6 +215,7 @@ void executa_buzzer(int *linha_comando_buzz)
         }
         i++;
     }while(i<MAX_LEDUZZING);
+    somConfirmacao();
 }
 void executa_led(int *linha_comando_led)
 {
@@ -238,5 +240,10 @@ int i=0;
         break;
         }
     }while(i<MAX_LEDUZZING);
+    somConfirmacao();
 }
-void interrupcaoBotao(uint gpio, uint32_t events);
+void interrupcaoBotao(uint gpio, uint32_t events) {
+    //if (gpio == PINO_BOTAO && events & GPIO_IRQ_EDGE_FALL) {
+       operacao_inicial();  // Entra no modo bootloader quando o botão for pressionado
+   // }
+}
