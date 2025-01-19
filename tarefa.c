@@ -97,8 +97,8 @@ void play_note(int frequency, int duration_ms) { // Função para tocar uma nota
     }
 }
 
-void SOS_signal() {
-    for (int i = 0; i < 3; i++) {
+void SOS_signal() { // Função para emissão do sinal de SOS
+    for (int i = 0; i < 3; i++) { // Emite a letra 'S' em código morse 
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
@@ -112,7 +112,7 @@ void SOS_signal() {
 
     sleep_ms(250);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) { // Emite a letra 'O' em código morse
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
@@ -126,7 +126,7 @@ void SOS_signal() {
 
     sleep_ms(250);
 
-    for (int i = 0; i < 3; i++) {  
+    for (int i = 0; i < 3; i++) { // Emite a letra 'S' em código morse
         gpio_put(LED_R_PIN, 1);
         gpio_put(LED_G_PIN, 1);
         gpio_put(LED_B_PIN, 1);
