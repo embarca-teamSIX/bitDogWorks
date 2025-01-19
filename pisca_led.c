@@ -5,7 +5,7 @@
 #include "menu_b_operacao.h" 
 
 // Intervalos de tempo para alternar a frequência dos leds piscando (em milissegundos)
-int intervals[] = {10, 1000, 750, 500, 250};
+int intervals[] = {10, 1000, 750, 500, 250, 150, 150, 80, 80, 80};
 const int num_intervals = sizeof(intervals) / sizeof(intervals[0]);
 
 void blink_led(uint8_t pin, uint32_t duration) {
