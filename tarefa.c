@@ -382,3 +382,45 @@ int main(){
 }
 
 
+
+#define LED1 13
+#define LED2 11
+#define LED3 12
+
+void play_note_custom(int freq, int duration) {
+    play_note(freq, duration);
+    sleep_ms(duration);
+}
+
+
+void pisca_leds() {
+    gpio_put(LED1, 1); // Acende LED 13
+    gpio_put(LED2, 1); // Acende LED 11
+    gpio_put(LED3, 1); // Acende LED 12
+    sleep_ms(200);     // Espera 200 ms
+    gpio_put(LED1, 0); // Apaga LED 13
+    gpio_put(LED2, 0); // Apaga LED 11
+    gpio_put(LED3, 0); // Apaga LED 12
+    sleep_ms(200);     // Espera 200 ms
+}
+
+
+void tocar_musica() {
+
+    int notas[] = {330, 330, 349, 349, 392, 392, 330, 330, 349, 349, 392, 392};
+    int duracao = 400;  // 
+
+    for (int i = 0; i < 12; i++) {
+        play_note_custom(notas[i], duracao);  // T
+        pisca_leds();  // 
+    }
+}
+
+
+void operacao_inicial() {
+    tocar_musica();  //
+
+    while (true) {
+        sleep_ms(1000);  // A
+    }
+}
