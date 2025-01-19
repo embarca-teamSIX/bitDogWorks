@@ -97,6 +97,38 @@ void play_note(int frequency, int duration_ms) { // Função para tocar uma nota
     }
 }
 
+void SOS_signal() {
+    for (int i = 0; i < 3; i++) {
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(200);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(200);
+        sleep_ms(125);
+    }
+
+    sleep_ms(250);
+
+    for (int i = 0; i < 3; i++) {
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(800);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(800);
+        sleep_ms(125);
+    }
+
+    sleep_ms(250);
+
+    for (int i = 0; i < 3; i++) {  
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(200);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(200);
+        sleep_ms(125);
+    }
+
+    sleep_ms(3000);
+}
+
 
 // Função para controlar o modo principal do sistema.
 void control_mode_0(int key) {
@@ -269,16 +301,16 @@ void control_mode_0(int key) {
     case 14:
        //entrando no modo bootloader
         printf("Entering bootloader mode...\n");
-    gpio_put(LED_R_PIN, 1); // Indicação visual (opcional)
-    sleep_ms(1000);         // Pequena pausa antes de reiniciar
-    reset_usb_boot(0, 0);   // Reinicia no modo USB Bootloader
+        gpio_put(LED_R_PIN, 1); // Indicação visual (opcional)
+        sleep_ms(1000);         // Pequena pausa antes de reiniciar
+        reset_usb_boot(0, 0);   // Reinicia no modo USB Bootloader
 
         break;
     case 15:
 
         break;
     case 16:
-
+        SOS_signal();
         break;
   
     
