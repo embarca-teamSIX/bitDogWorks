@@ -1,7 +1,7 @@
 #include "pico/stdlib.h"              // Inclui a biblioteca padrão do Pico para entrada e saída.
 #include "hardware/gpio.h"            // Inclui a biblioteca de controle GPIO do hardware.
 #include "pico/bootrom.h"             // Necessário para funções como reset_usb_boot.
-
+#include "menu_b_operacao.h"            //include de Gleison F.
 #define ROWS 4                        // Define o número de linhas do teclado matricial.
 #define COLS 4                        // Define o número de colunas do teclado matricial.
 
@@ -248,7 +248,7 @@ void control_mode_0(int key) {
 
         break;
     case 8:
-//meu MM
+        operacao_inicial();//função de Gleison F presente no menu_B_operacao
         break;
     case 9:
 
