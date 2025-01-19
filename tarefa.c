@@ -13,6 +13,11 @@ int col_pins[COLS] = {20, 4, 9, 8};    // Define os pinos GPIO usados para as co
 #define LED_B_PIN 12                  // Define o pino GPIO do LED azul.
 #define BUZZER_PIN 10                 // Define o pino GPIO do buzzer.
 
+#define DOT_DURATION 200  // Duração de um ponto (curto)
+#define DASH_DURATION 600 // Duração de um traço (longo)
+#define LETTER_SPACE 600  // Espaço entre letras
+#define WORD_SPACE 1200   // Espaço entre palavras
+
 int keypad[ROWS][COLS] = {            // Mapeia os valores associados a cada tecla do teclado.
     {1, 2, 3, 4},
     {5, 6, 7, 8},
@@ -45,6 +50,77 @@ void menu_switch_feedback() {         // Função para fornecer feedback ao alte
     play_note(1000, 100);             // Toca um tom de 1 kHz por 100 ms.
     sleep_ms(100);                    // Aguarda 100 ms.
     play_note(1200, 100);             // Toca um tom de 1.2 kHz por 100 ms.
+}
+
+
+// Função para piscar o LED em código morse.
+void morse_code(const char* message) {
+    while (*message) {  // Percorre a mensagem
+        if (*message == ' ') {
+            sleep_ms(WORD_SPACE); // Pausa entre palavras
+        } else {
+            char letter = *message;
+            const char* morse = NULL;
+            
+            // Mapeamento de cada letra para código Morse
+            switch (letter) {
+                case 'O': morse = "---"; break;
+                case 'L': morse = ".-.."; break;
+                case 'A': morse = ".-"; break;
+                case 'M': morse = "--"; break;
+                case 'U': morse = "..-"; break;
+                case 'N': morse = "-."; break;
+                case 'D': morse = "-.."; break;
+                case 'I': morse = ".."; break;
+                case 'P': morse = ".--."; break;
+                default: break; // Ignora caracteres não mapeados
+            }
+
+            // Pisca o LED de acordo com o código Morse
+            for (int i = 0; morse && morse[i] != '\0'; i++) {
+                if (morse[i] == '.') {  // Ponto
+                    gpio_put(LED_R_PIN, 1);
+                    sleep_ms(DOT_DURATION);
+                    gpio_put(LED_R_PIN, 0);
+                } else if (morse[i] == '-') {  // Traço
+                    gpio_put(LED_R_PIN, 1);
+                    sleep_ms(DASH_DURATION);
+                    gpio_put(LED_R_PIN, 0);
+                }
+                sleep_ms(DOT_DURATION);  // Intervalo entre os sinais (ponto e traço)
+            }
+            
+            sleep_ms(LETTER_SPACE);  // Intervalo entre as letras
+        }
+        message++;  // Avança para o próximo caractere
+    }
+}
+
+void SOS_signal() {
+    for (int i = 0; i < 3; i++) {
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(200);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(200);
+        sleep_ms(125);
+    }
+    sleep_ms(250);
+    for (int i = 0; i < 3; i++) {
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(800);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(800);
+        sleep_ms(125);
+    }
+    sleep_ms(250);
+    for (int i = 0; i < 3; i++) {  
+        gpio_put(LED_R_PIN, 1);
+        sleep_ms(200);
+        gpio_put(LED_R_PIN, 0);
+        sleep_ms(200);
+        sleep_ms(125);
+    }
+    sleep_ms(3000);
 }
 
 void setup_gpio() {                   // Configuração inicial dos pinos GPIO.
@@ -248,6 +324,7 @@ void control_mode_0(int key) {
        
         break;
     case 6:
+    
 
         break;
 
@@ -283,8 +360,15 @@ void control_mode_0(int key) {
         break;
     case 15:
 
+     // Envia a mensagem "Ola Mundo" em código Morse.
+
+        morse_code("OLA MUNDO"); //Função de Isadora
+        sleep_ms(100);
+
         break;
     case 16:
+
+       SOS_signal(); //Função de Pedro
 
         break;
   
