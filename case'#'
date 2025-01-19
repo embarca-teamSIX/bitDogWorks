@@ -1,10 +1,21 @@
-case '#': 
-  for (uint8_t l = 0; l < LEDS; l++) {
-    gpio_put(ledPins[l], 0); // Desliga todos os LEDs
-  }
-  sleep_ms(500); // Atraso de meio segundo
-  for (uint8_t l = 0; l < LEDS; l++) {
-    gpio_put(ledPins[l], 1); // Liga todos os LEDs
-  }
-  sleep_ms(500); // Atraso de meio segundo
-  break;
+case 15: {
+    int ledPins[3] = {LED_R_PIN, LED_G_PIN, LED_B_PIN}; // Lista com os pinos dos LEDs
+    
+    // Desliga todos os LEDs
+    for (uint8_t l = 0; l < 3; l++) {
+        gpio_put(ledPins[l], 0);
+    }
+    sleep_ms(500); // Atraso de meio segundo
+
+    // Liga todos os LEDs
+    for (uint8_t l = 0; l < 3; l++) {
+        gpio_put(ledPins[l], 1);
+    }
+    sleep_ms(500); // Atraso de meio segundo
+
+    // Desliga novamente para retornar ao estado inicial
+    for (uint8_t l = 0; l < 3; l++) {
+        gpio_put(ledPins[l], 0);
+    }
+    break;
+}
