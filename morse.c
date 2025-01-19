@@ -49,7 +49,7 @@ void morse_code(const char* message) {
 }
 
 
-int main() {
+/*int main() {
     stdio_init_all();   // Inicializa a entrada e saída padrão.
     setup_gpio();       // Configura os pinos GPIO.
 
@@ -59,4 +59,4 @@ int main() {
         sleep_ms(2000);  // Pausa entre repetições
     }
 }
-
+*/
