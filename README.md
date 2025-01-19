@@ -36,6 +36,7 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
 #### **Modo 1 - Alternativo**
 - Similar ao Modo 0, mas com comportamento diferenciado:
   - **Tecla 1:** Acende o LED vermelho por 1 segundo.
+  - **Tecla 12:** Aciona o pisca led em várias frequências e finaliza piscando os 3 de vez.
   - **Tecla 13:** Retorna ao **Modo 0**.
 
 ---
