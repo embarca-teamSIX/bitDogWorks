@@ -175,13 +175,13 @@ void operacao_inicial()
     }
     }
 }
-void executa_buzzer(int *linha_comando_buz)
+void executa_buzzer(int *linha_comando_buzz)
 {
     int i=0;
     do
     {
         
-        switch (linha_comando_led[i])
+        switch (linha_comando_buzz[i])
         {
             case 1:
           playNote(261, 200);
