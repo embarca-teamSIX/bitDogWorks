@@ -509,7 +509,7 @@ void tocar_musica() {
 void operacao_inicial() {
     tocar_musica();  //
 
-    while (true) {
+   
         sleep_ms(1000);  // A
-    }
+
 }
