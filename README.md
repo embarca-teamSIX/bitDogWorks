@@ -34,7 +34,7 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
   - **Tecla "*":** Alterna para o **Modo 1**.
   - **Tecla 0:** Entra no modo bootloader.
   - **Tecla #:** OLA MUNDO em codigo morse.
-  - **Tecla D:** SOSO em codigo morse.
+  - **Tecla D:** SOS em codigo morse.
 
 #### **Modo 1 - Alternativo**
 - Similar ao Modo 0, mas com comportamento diferenciado:
