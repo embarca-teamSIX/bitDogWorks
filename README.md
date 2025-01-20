@@ -28,26 +28,28 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
   - **Tecla 1:** Acende o LED vermelho.
   - **Tecla 2:** Acende o LED azul.
   - **Tecla 3:** Acende o LED verde.
-  - **Tecla 4:** Toca o tema de "Super Mario Bros".
-  - **Tecla 5:** Acende todos os LEDs (RGB).
-  - **Tecla 8:** Acende os LEDs enquanto executa no Buzzer uma musiquinha.
-  - **Tecla 13:** Alterna para o **Modo 1**.
-  - **Tecla 14:** Entra no modo bootloader.
+  - **Tecla A:** Toca o tema de "Super Mario Bros".
+  - **Tecla 4:** Acende todos os LEDs (RGB).
+  - **Tecla B:** Acende os LEDs enquanto executa no Buzzer uma musiquinha.
+  - **Tecla "*":** Alterna para o **Modo 1**.
+  - **Tecla 0:** Entra no modo bootloader.
+  - **Tecla #:** OLA MUNDO em codigo morse.
+  - **Tecla D:** SOSO em codigo morse.
 
 #### **Modo 1 - Alternativo**
 - Similar ao Modo 0, mas com comportamento diferenciado:
   - **Tecla 1:** Acende o LED vermelho por 1 segundo.
-  - **Tecla 12:** Aciona o pisca led em várias frequências e finaliza piscando os 3 de vez.
-  - **Tecla 13:** Retorna ao **Modo 0**.
+  - **Tecla C:** Aciona o pisca led em várias frequências e finaliza piscando os 3 de vez.
+  - **Tecla "*":** Retorna ao **Modo 0**.
 
 ---
 
 ### 🔹 Comandos Especiais
 - **Trocar de Modo:**
-  - Pressione a tecla **13** para alternar entre os modos.
+  - Pressione a tecla **"*"** para alternar entre os modos.
   - O feedback de troca inclui piscadas dos LEDs e sons do buzzer.
 - **Entrar no Bootloader:**
-  - Pressione a tecla **14** para entrar no modo bootloader. Um LED acenderá como indicação antes de reiniciar.
+  - Pressione a tecla **0** para entrar no modo bootloader. Um LED acenderá como indicação antes de reiniciar.
 
 ---
 
