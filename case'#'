@@ -1,21 +1,42 @@
-case 15: {
-    int ledPins[3] = {LED_R_PIN, LED_G_PIN, LED_B_PIN}; // Lista com os pinos dos LEDs
-    
-    // Desliga todos os LEDs
-    for (uint8_t l = 0; l < 3; l++) {
-        gpio_put(ledPins[l], 0);
+
+#include <stdio.h>
+#include "pico/stdlib.h" // Inclua a biblioteca do Raspberry Pi Pico, se aplicável
+
+#define DELAY_MS 500 // Define o atraso em milissegundos
+
+// Função para desligar todos os LEDs
+void turnOffLEDs(const int pins[], uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        gpio_put(pins[i], 0);
     }
-    sleep_ms(500); // Atraso de meio segundo
+}
+
+// Função para ligar todos os LEDs
+void turnOnLEDs(const int pins[], uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        gpio_put(pins[i], 1);
+    }
+}
+
+void case15() {
+    // Declara os pinos conectados aos LEDs
+    int ledPins[3] = {LED_R_PIN, LED_G_PIN, LED_B_PIN}; 
+    uint8_t numLEDs = sizeof(ledPins) / sizeof(ledPins[0]); // Calcula o tamanho do array
+
+    // Configura os pinos como saída
+    for (uint8_t i = 0; i < numLEDs; i++) {
+        gpio_init(ledPins[i]);  // Inicializa cada pino
+        gpio_set_dir(ledPins[i], GPIO_OUT); // Define como saída
+    }
+
+    // Desliga todos os LEDs
+    turnOffLEDs(ledPins, numLEDs);
+    sleep_ms(DELAY_MS); // Atraso de meio segundo
 
     // Liga todos os LEDs
-    for (uint8_t l = 0; l < 3; l++) {
-        gpio_put(ledPins[l], 1);
-    }
-    sleep_ms(500); // Atraso de meio segundo
+    turnOnLEDs(ledPins, numLEDs);
+    sleep_ms(DELAY_MS); // Atraso de meio segundo
 
     // Desliga novamente para retornar ao estado inicial
-    for (uint8_t l = 0; l < 3; l++) {
-        gpio_put(ledPins[l], 0);
-    }
-    break;
+    turnOffLEDs(ledPins, numLEDs);
 }
