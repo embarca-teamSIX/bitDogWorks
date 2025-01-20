@@ -30,6 +30,7 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
   - **Tecla 3:** Acende o LED verde.
   - **Tecla 4:** Toca o tema de "Super Mario Bros".
   - **Tecla 5:** Acende todos os LEDs (RGB).
+  - **Tecla 8:** Acende os LEDs enquanto executa no Buzzer uma musiquinha.
   - **Tecla 13:** Alterna para o **Modo 1**.
   - **Tecla 14:** Entra no modo bootloader.
 
