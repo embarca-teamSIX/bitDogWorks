@@ -53,6 +53,11 @@ Este projeto utiliza o Raspberry Pi Pico W para implementar um sistema interativ
 
 ---
 
+### Link do vídeo - Apresentação da tarefa
+- https://youtu.be/EGRNe30qIlA
+
+---
+
 ### ⚠️ Observações
 - **Debouncing:** O código utiliza um atraso de 200 ms para evitar múltiplas leituras ao pressionar uma tecla.
 - **Modificações:** Novas funcionalidades podem ser adicionadas ao mapear as teclas restantes no teclado.
