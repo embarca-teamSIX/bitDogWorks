@@ -1,7 +1,8 @@
 #include "pico/stdlib.h"              // Inclui a biblioteca padrão do Pico para entrada e saída.
 #include "hardware/gpio.h"            // Inclui a biblioteca de controle GPIO do hardware.
 #include "pico/bootrom.h"             // Necessário para funções como reset_usb_boot.
-#include "menu_b_operacao.h"            //include de Gleison F.
+#include "menu_b_operacao.h"          //include de Gleison F.
+#include "pisca_led.h"                // Include de jorge  
 #define ROWS 4                        // Define o número de linhas do teclado matricial.
 #define COLS 4                        // Define o número de colunas do teclado matricial.
 
@@ -27,6 +28,10 @@ int keypad[ROWS][COLS] = {            // Mapeia os valores associados a cada tec
 
 int last_key = -1;                    // Armazena a última tecla pressionada (-1 significa nenhuma).
 int current_mode = 0;                 // Define o modo atual do sistema (0: principal, 1: alternativo).
+
+// Variáveis de controle
+bool run_frequencies = false; // Permite que rode o pisca led apenas uma vez
+
 //prototipos
 void menu_switch_feedback();
 void setup_gpio();
@@ -179,7 +184,6 @@ void play_note(int frequency, int duration_ms) { // Função para tocar uma nota
         sleep_us(delay_us);                     // Aguarda pelo tempo do ciclo.
     }
 }
-
 
 // Função para controlar o modo principal do sistema.
 void control_mode_0(int key) {
@@ -420,10 +424,11 @@ void control_mode_1(int key) {
 
         break;
     case 11:
-
         break;
     case 12:
-
+        // Alterna a frequência de comutação dos leds cada vez que o botão é pressionado
+        run_pisca_led_diferentes_frequencias(LED_R_PIN, LED_G_PIN, LED_B_PIN);
+        piscar_todos_os_leds_finalizando(LED_R_PIN, LED_G_PIN, LED_B_PIN);
         break;
     case 13:
         current_mode = 0;

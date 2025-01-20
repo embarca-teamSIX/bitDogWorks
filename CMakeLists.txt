@@ -38,6 +38,7 @@ pico_sdk_init()
 add_executable(tarefa 
             tarefa.c 
             menu_b_operacao.c
+            pisca_led.c
                 )
 
 pico_set_program_name(tarefa "tarefa")
